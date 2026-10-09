@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/llamira-icon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/llamira-icon-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/llamira-icon-48.png" />
+    <link rel="apple-touch-icon" href="/llamira-icon-256.png" />
+    <title>Llamira</title>
+    <meta name="description" content="Your local AI model control center." />
+    <script>
+      // apply the theme before first paint (see src/theme.ts)
+      ;(function () {
+        var t = null
+        try { t = localStorage.getItem('llamira.theme') } catch (e) {}
+        var dark = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
+        document.documentElement.classList.toggle('dark', dark)
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* dark mode follows the .dark class on <html> (set from the saved choice or the system setting) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+}
+
+@layer base {
+  html { @apply bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100; color-scheme: light; }
+  html.dark { color-scheme: dark; }
+  body { @apply antialiased; }
+}
+
+@layer components {
+  .card { @apply rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900; }
+  .card-h { @apply flex items-center justify-between gap-2 border-b border-zinc-200 px-4 py-2.5 text-sm font-semibold dark:border-zinc-800; }
+  .btn { @apply inline-flex items-center justify-center gap-1.5 rounded-lg border border-zinc-300 bg-white px-3 py-1.5 text-sm font-medium text-zinc-800 shadow-xs transition hover:bg-zinc-100 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700; }
+  .btn-primary { @apply border-emerald-600 bg-emerald-600 text-white hover:bg-emerald-700 dark:border-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-500; }
+  .btn-danger { @apply border-red-600 bg-red-600 text-white hover:bg-red-700 dark:border-red-600 dark:bg-red-600 dark:hover:bg-red-500; }
+  .btn-sm { @apply px-2 py-1 text-xs; }
+  .input { @apply w-full rounded-lg border border-zinc-300 bg-white px-2.5 py-1.5 text-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 dark:border-zinc-700 dark:bg-zinc-950; }
+  .label { @apply mb-1 block text-xs font-medium text-zinc-600 dark:text-zinc-400; }
+  .muted { @apply text-zinc-500 dark:text-zinc-400; }
+  .badge { @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium; }
+}
+
+/* categorical series colours (validated: dataviz reference palette, light + dark steps) */
+:root {
+  --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a; --series-4: #eda100;
+  --series-5: #e87ba4; --series-6: #008300; --series-7: #4a3aa7; --series-8: #e34948;
+  --chart-surface: #ffffff;
+}
+:root.dark {
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500;
+  --series-5: #d55181; --series-6: #008300; --series-7: #9085e9; --series-8: #e66767;
+  --chart-surface: #18181b;
+}
+
+/* rendered markdown (Playground replies) */
+.md { @apply text-sm leading-relaxed break-words; }
+.md > :first-child { margin-top: 0; }
+.md > :last-child { margin-bottom: 0; }
+.md p, .md ul, .md ol, .md table, .md blockquote, .md .md-code { @apply my-2; }
+.md h1, .md h2, .md h3, .md h4 { @apply mt-3 mb-1.5 font-semibold; }
+.md h1 { @apply text-lg; } .md h2 { @apply text-base; } .md h3, .md h4 { @apply text-sm; }
+.md ul { @apply list-disc pl-5; } .md ol { @apply list-decimal pl-5; } .md li { @apply my-0.5; }
+.md a { @apply text-emerald-700 underline dark:text-emerald-400; }
+.md blockquote { @apply border-l-2 border-zinc-300 pl-3 text-zinc-600 dark:border-zinc-600 dark:text-zinc-400; }
+.md :not(pre) > code { @apply rounded bg-zinc-200/70 px-1 py-0.5 font-mono text-[0.85em] dark:bg-zinc-700/70; }
+.md table { @apply block overflow-x-auto border-collapse text-xs; }
+.md th, .md td { @apply border border-zinc-300 px-2 py-1 text-left dark:border-zinc-700; }
+.md th { @apply bg-zinc-200/60 font-semibold dark:bg-zinc-700/50; }
+.md hr { @apply my-3 border-zinc-300 dark:border-zinc-700; }
+.md .md-code { @apply overflow-hidden rounded-lg border border-zinc-300 dark:border-zinc-700; }
+.md .md-code-h { @apply flex items-center justify-between bg-zinc-200/80 px-3 py-1 text-[11px] text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400; }
+.md .md-code-h button { @apply rounded px-1.5 hover:bg-zinc-300 dark:hover:bg-zinc-700; }
+.md pre { @apply overflow-x-auto bg-zinc-950 p-3 font-mono text-xs leading-snug text-zinc-100; }

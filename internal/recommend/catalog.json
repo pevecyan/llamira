@@ -1,0 +1,16 @@
+{
+  "version": "2026-10-09",
+  "entries": [
+    {"name": "Qwen3.5 4B", "use": ["chat", "vision", "small"], "repo": "unsloth/Qwen3.5-4B-GGUF", "ctx": 32768, "notes": "Fast general assistant with vision; good for agents and quick tasks."},
+    {"name": "LFM2.5 2.6B", "use": ["chat", "small"], "repo": "LiquidAI/LFM2.5-2.6B-GGUF", "ctx": 32768, "notes": "Very small and fast; hybrid architecture with a tiny KV cache."},
+    {"name": "Qwen3.5 9B", "use": ["chat", "vision"], "repo": "unsloth/Qwen3.5-9B-GGUF", "ctx": 32768, "notes": "Strong all-rounder that fits a single 12 GB GPU with long context."},
+    {"name": "Gemma 4 12B", "use": ["chat", "vision"], "repo": "unsloth/gemma-4-12b-it-GGUF", "ctx": 32768, "notes": "Google's 12B with vision; sliding-window attention keeps long contexts cheap."},
+    {"name": "gpt-oss 20B", "use": ["chat", "reasoning"], "repo": "unsloth/gpt-oss-20b-GGUF", "ctx": 32768, "notes": "OpenAI open-weight MoE reasoning model (MXFP4)."},
+    {"name": "Mistral Small 3.2 24B", "use": ["chat", "vision"], "repo": "unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF", "ctx": 32768, "notes": "Dense 24B with vision and good instruction following."},
+    {"name": "Qwen3.8 27B", "use": ["chat", "vision", "reasoning"], "repo": "unsloth/Qwen3.8-27B-GGUF", "ctx": 32768, "notes": "Strongest dense model in this list; needs both 12 GB GPUs."},
+    {"name": "Qwen3.6 35B-A3B", "use": ["chat", "vision"], "repo": "unsloth/Qwen3.6-35B-A3B-GGUF", "ctx": 32768, "notes": "MoE with 3B active parameters: fast generation for its size."},
+    {"name": "Qwen3 Coder 30B-A3B", "use": ["coder"], "repo": "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF", "ctx": 32768, "notes": "Coding MoE for agents and IDE assistants."},
+    {"name": "Qwen3 Embedding 0.6B", "use": ["embedding"], "repo": "Qwen/Qwen3-Embedding-0.6B-GGUF", "ctx": 8192, "notes": "Text embeddings for RAG (run as an embedding model)."},
+    {"name": "EmbeddingGemma 300M", "use": ["embedding"], "repo": "ggml-org/embeddinggemma-300M-GGUF", "ctx": 2048, "notes": "Tiny multilingual embedding model."}
+  ]
+}

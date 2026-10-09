@@ -1,0 +1,8 @@
+.env
+/bin/
+/llamira
+/cmd/llamira/llamira
+/web/node_modules/
+/web/dist/*
+!/web/dist/.keep
+*.db
